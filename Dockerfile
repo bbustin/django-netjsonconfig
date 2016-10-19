@@ -5,4 +5,4 @@ RUN mkdir /opt/django-netjsonconfig
 COPY . /opt/django-netjsonconfig/
 RUN cd /opt/django-netjsonconfig/ && python setup.py develop && pip install -r requirements-test.txt && python tests/manage.py migrate && python tests/manage.py createsuperuser
 EXPOSE 8000
-ENTRYPOINT ["/opt/django-netjsonconfig/tests/manage.py", "runserver"]
+ENTRYPOINT ["python", "/opt/django-netjsonconfig/tests/manage.py", "runserver"]
